@@ -18,4 +18,5 @@ def lambda_handler(event, context):
     logger.info('## EVENT\r' + jsonpickle.encode(event))
     logger.info('## CONTEXT\r' + jsonpickle.encode(context))
     response = client.get_account_settings()
+    logger.info('## COPASI VERSION\r' + jsonpickle.encode(COPASI.CVersion.VERSION.getVersion()))
     return response['AccountUsage']

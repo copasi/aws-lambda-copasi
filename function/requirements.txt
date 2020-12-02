@@ -1,3 +1,4 @@
 jsonpickle
 aws-xray-sdk
 python-copasi
+boto3
