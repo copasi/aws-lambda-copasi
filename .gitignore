@@ -3,3 +3,7 @@
 *.txt
 out.yml
 package
+/.vscode
+aws-test
+function/brusselator_out.cps
+out.json

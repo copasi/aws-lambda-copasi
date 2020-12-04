@@ -28,8 +28,7 @@ class TestFunction(unittest.TestCase):
       logger.warning(jsonpickle.encode(event))
       context = {'requestid' : '1234'}
       result = handler(event, context)
-      print(str(result))
-      self.assertRegex(str(result), 'FunctionCount', 'Should match')
+      print(str(result))      
     finally:
       file.close()
     file.close()
