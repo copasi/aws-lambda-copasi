@@ -1,17 +1,23 @@
 import os
 import logging
 import jsonpickle
-import boto3
 import COPASI
+import boto3
 from aws_xray_sdk.core import xray_recorder
 from aws_xray_sdk.core import patch_all
+import traceback
 
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
-patch_all()
 
-client = boto3.client('lambda')
-client.get_account_settings()
+try: 
+    patch_all()
+
+    client = boto3.client('lambda')
+    client.get_account_settings()
+except:
+    logger.error("## Unable to interact with lambda API")
+    traceback.print_exc()
 
 dm = COPASI.CRootContainer.addDatamodel()
 assert(isinstance(dm, COPASI.CDataModel))
